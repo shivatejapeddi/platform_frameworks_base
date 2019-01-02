@@ -176,6 +176,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import com.android.internal.util.custom.thermal.ThermalController;
+
 /**
  * State and management of a single stack of activities.
  */
@@ -2719,6 +2721,10 @@ public class ActivityStack extends ConfigurationContainer {
         next.launching = true;
 
         if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resuming " + next);
+        String nextActivePackageName = next.intent.getComponent().getPackageName();
+        if (prev != next) {
+            ThermalController.sendActivePackageChangedBroadcast(nextActivePackageName, mService.getContext());
+        }        
 
         if (mActivityTrigger != null) {
             mActivityTrigger.activityResumeTrigger(next.intent, next.info, next.appInfo,
