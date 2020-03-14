@@ -7484,4 +7484,9 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
             }
         }
     }
+
+    Context getContext() {
+        return mContext;
+    }
+
 }

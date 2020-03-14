@@ -87,9 +87,6 @@
     <!-- Home button wake -->
     <java-symbol type="bool" name="config_HomeWakeButton" />
 
-    <!-- Themes -->
-    <java-symbol type="color" name="theme_generic_semi_transparent_color" />
-
     <!-- Gaming mode -->
     <java-symbol type="drawable" name="ic_gaming_notif" />
     <java-symbol type="string" name="notification_channel_gaming" />
